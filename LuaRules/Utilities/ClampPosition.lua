@@ -46,7 +46,9 @@ function Spring.Utilities.GiveClampedOrderToUnit(unitID, cmdID, params, options,
 		if snapToHeight then
 			y = Spring.Utilities.GetTeamGroundHeight(Spring.GetUnitTeam(unitID), x, z)
 		end
+		GG.recursion_GiveOrderToUnit = true
 		spGiveOrderToUnit(unitID, cmdID, {params[1], params[2], params[3], x, y, z}, options)
+		GG.recursion_GiveOrderToUnit = false
 		return x, y, z
 	end
 	local x, z = Spring.Utilities.ClampPosition(params[1], params[3])
@@ -54,7 +56,9 @@ function Spring.Utilities.GiveClampedOrderToUnit(unitID, cmdID, params, options,
 	if snapToHeight then
 		y = Spring.Utilities.GetTeamGroundHeight(Spring.GetUnitTeam(unitID), x, z)
 	end
+	GG.recursion_GiveOrderToUnit = true
 	spGiveOrderToUnit(unitID, cmdID, {x, y, z}, options)
+	GG.recursion_GiveOrderToUnit = false
 	return x, y, z
 end
 
