@@ -566,8 +566,6 @@ function widget:MousePress(mx, my, mButton)
 		
 		usingContextCommand = true
 		usingRMB = true
-		Spring.Echo(usingContextCommand)
-		Spring.Echo(usingRMB)
 	end
 	
 	-- Without this, the unloads issued will use the area of the last area unload
